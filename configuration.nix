@@ -30,19 +30,9 @@
 
   # SSH Agent
   programs.ssh.startAgent = true;
-  systemd.user.services.ssh-add-sops = {
-    description = "Add SOPS SSH key to agent";
-    wantedBy = [ "default.target" ];
-    requires = [ "sops-nix.service" ]; # Ensures secrets are decrypted first
-    after = [ "sops-nix.service" ];
-
-    serviceConfig = {
-      ExecStart = "${pkgs.openssh}/bin/ssh-add /run/secrets/my_ssh_key";
-      Type = "oneshot";
-      StandardInput = "tty"; # Allows you to type the password in the console
-      StandardOutput = "tty";
-    };
-  };
+  programs.ssh.extraConfig = ''
+    AddKeysToAgent yes
+  '';
 
   # Packages
   environment.systemPackages = with pkgs; [
