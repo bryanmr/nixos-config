@@ -4,7 +4,6 @@
   home.username = "bryan";
   home.homeDirectory = "/home/bryan";
 
-  # This is the user-level version of systemPackages
   home.packages = with pkgs; [
     python314
     uv
@@ -17,14 +16,12 @@
     UV_PYTHON_DOWNLOADS = "never";
   };
 
-  # Manage your git config via Nix!
   programs.git = {
     enable = true;
     userName = "Bryan";
     userEmail = "bryan.mreese@gmail.com";
   };
 
-  # Example: Managing your bash aliases
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -40,8 +37,8 @@
     settings = {
       ignorecase = true;
       smartcase = true;
-      number = true;     # Show line numbers
-      shiftwidth = 2;    # 2 space tabs
+      number = true;
+      shiftwidth = 2;
       expandtab = true;
     };
     extraConfig = ''
