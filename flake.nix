@@ -12,7 +12,6 @@
   let
     system = "x86_64-linux";
     
-    # 1. Define the modules that every machine will use
     shared-modules = [
       ./configuration.nix
       sops-nix.nixosModules.sops
@@ -25,7 +24,6 @@
     ];
   in {
     nixosConfigurations = {
-      # 2. Use the ++ operator to merge shared-modules with host-specific ones
       wsl = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = shared-modules ++ [
@@ -38,7 +36,7 @@
         inherit system;
         modules = shared-modules ++ [
           ./desktop.nix
-          ./hardware-configuration.nix # Don't forget your hardware scan!
+          ./hardware-configuration.nix
         ];
       };
     };
