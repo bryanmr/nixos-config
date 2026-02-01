@@ -47,6 +47,8 @@
 
       echo "Detected environment: $TARGET"
       sudo nixos-rebuild switch --flake /home/bryan/nixos-config#$TARGET
+
+      source ~/.bashrc
     '')
   ];
 
