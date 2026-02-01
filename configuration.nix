@@ -5,8 +5,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   time.timeZone = "America/New_York";
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit = {
+    enable = true;
+    suppressNvidiaDriverAssertion = true; # Errors on WSL
+  };
   nix.settings.auto-optimise-store = true;
   system.stateVersion = "25.05";
+  nixpkgs.config.allowUnfree = true;
 
   # Secrets Management (sops-nix)
   sops = {
@@ -69,4 +74,9 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+
+  imports =
+  [
+    ./ollama.nix
+  ];
 }
