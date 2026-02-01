@@ -15,11 +15,13 @@ in
 
   services.ollama = {
     enable = true;
-    package = pkgs-unstable.ollama-cuda; # Now it's tracked and "pure"!
+    package = pkgs-unstable.ollama-cuda;
     acceleration = "cuda";
 
     loadModels = [
       "nemotron-3-nano"
+      "nemotron-3-nano:30b"
+      "gemma3:27b-it-qat"
     ];
 
     environmentVariables = {
@@ -30,12 +32,17 @@ in
   # Enable the Open WebUI service
   services.open-webui = {
     enable = true;
+    package = pkgs-unstable.open-webui;
     port = 8080;
     # Ensure it talks to your local Ollama instance
     environment = {
       OLLAMA_BASE_URL = "http://127.0.0.1:11434";
-      # Disables the "first user is admin" check if you're just using it solo
       WEBUI_AUTH = "False";
+      FRONTEND_BUILD_DIR = "${config.services.open-webui.stateDir}/build";
+      DATA_DIR           = "${config.services.open-webui.stateDir}/data";
+      STATIC_DIR         = "${config.services.open-webui.stateDir}/static";
     };
   };
+
+  systemd.services.open-webui.path = [ pkgs.ffmpeg ];
 }
