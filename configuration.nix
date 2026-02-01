@@ -1,9 +1,12 @@
-{ pkgs, config, ... }:
+{ config, pkgs, ... }:
 
 {
-  # WSL Specifics
-  wsl.enable = true;
-  wsl.defaultUser = "bryan";
+  # System Settings
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  time.timeZone = "America/New_York";
+  virtualisation.docker.enable = true;
+  nix.settings.auto-optimise-store = true;
+  system.stateVersion = "25.05";
 
   # Secrets Management (sops-nix)
   sops = {
@@ -23,11 +26,6 @@
     };
   };
 
-  # System Settings
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  time.timeZone = "America/New_York";
-  virtualisation.docker.enable = true;
-
   # SSH Agent
   programs.ssh.startAgent = true;
   programs.ssh.extraConfig = ''
@@ -39,6 +37,17 @@
     vim
     sops
     age
+    # Helper to rebuild
+    (pkgs.writeShellScriptBin "rebuild" ''
+      if grep -qi microsoft /proc/version; then
+        TARGET="wsl"
+      else
+        TARGET="desktop"
+      fi
+
+      echo "Detected environment: $TARGET"
+      sudo nixos-rebuild switch --flake /home/bryan/nixos-config#$TARGET
+    '')
   ];
 
   # Environment
@@ -48,7 +57,6 @@
   };
 
   environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /home/bryan/nixos-config#nixos";
     nix-clean = "sudo nix-collect-garbage -d";
     sec-edit = "sops /home/bryan/secrets/secrets.yaml";
   };
@@ -60,7 +68,9 @@
     options = "--delete-older-than 30d";
   };
 
-  nix.settings.auto-optimise-store = true;
-
-  system.stateVersion = "25.05";
+  users.users.bryan = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    group = "users";
+  };
 }

@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.username = "bryan";
-  home.homeDirectory = "/home/bryan";
+  # Use mkForce to resolve the conflict with common.nix
+  home.homeDirectory = lib.mkForce "/home/bryan";
+  home.stateVersion = "25.05";
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     python314
@@ -48,6 +51,4 @@
     '';
   };
 
-  home.stateVersion = "25.05";
-  programs.home-manager.enable = true;
 }
