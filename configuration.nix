@@ -69,10 +69,4 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-
-  users.users.bryan = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    group = "users";
-  };
 }
