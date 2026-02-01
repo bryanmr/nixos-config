@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "bryan";
-  home.homeDirectory = "/home/bryan";
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
