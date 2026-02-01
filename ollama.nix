@@ -19,7 +19,6 @@ in
     acceleration = "cuda";
 
     loadModels = [
-      "nemotron-3-nano"
       "nemotron-3-nano:30b"
       "gemma3:27b-it-qat"
     ];
