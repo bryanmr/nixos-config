@@ -68,6 +68,10 @@
     sec-edit = "sops /home/bryan/secrets/secrets.yaml";
   };
 
+  programs.bash.interactiveShellInit = ''
+      set -o noclobber
+  '';
+
   # Maintenance
   nix.gc = {
     automatic = true;
