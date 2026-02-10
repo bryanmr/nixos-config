@@ -8,10 +8,7 @@ let
   };
 in
 {
-  hardware.nvidia-container-toolkit = {
-    enable = true;
-    suppressNvidiaDriverAssertion = true;
-  };
+  hardware.graphics.enable = true;
 
   services.ollama = {
     enable = true;
@@ -40,6 +37,10 @@ in
       FRONTEND_BUILD_DIR = "${config.services.open-webui.stateDir}/build";
       DATA_DIR           = "${config.services.open-webui.stateDir}/data";
       STATIC_DIR         = "${config.services.open-webui.stateDir}/static";
+      # Enable image generation features
+      ENABLE_IMAGE_GEN = "True";
+      IMAGE_GEN_ENGINE = "comfyui";
+      COMFYUI_BASE_URL = "http://127.0.0.1:8188";
     };
   };
 

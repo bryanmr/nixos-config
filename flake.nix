@@ -2,11 +2,11 @@
   description = "Bryan's Clean NixOS Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     sops-nix.url = "github:Mic92/sops-nix";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
   };
 
   outputs = { self, nixpkgs, nixos-wsl, home-manager, sops-nix, ... } @ inputs:
@@ -15,6 +15,7 @@
     
     shared-modules = [
       ./configuration.nix
+      { system.stateVersion = "25.11"; }
       sops-nix.nixosModules.sops
       home-manager.nixosModules.home-manager
       {

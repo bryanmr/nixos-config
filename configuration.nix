@@ -1,17 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # System Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   time.timeZone = "America/New_York";
-  virtualisation.docker.enable = true;
-  hardware.nvidia-container-toolkit = {
-    enable = true;
-    suppressNvidiaDriverAssertion = true; # Errors on WSL
-  };
   nix.settings.auto-optimise-store = true;
-  system.stateVersion = "25.05";
-  nixpkgs.config.allowUnfree = true;
 
   # Secrets Management (sops-nix)
   sops = {
@@ -42,6 +35,8 @@
     vim
     sops
     age
+    jq
+    nvidia-container-toolkit
     # Helper to rebuild
     (pkgs.writeShellScriptBin "rebuild" ''
       if grep -qi microsoft /proc/version; then
@@ -61,6 +56,8 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
+    # nvidia-smi fixes
+    LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
   };
 
   environment.shellAliases = {

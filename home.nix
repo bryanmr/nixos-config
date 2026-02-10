@@ -18,8 +18,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Bryan";
-    userEmail = "bryan.mreese@gmail.com";
+    settings.user.name = "Bryan";
+    settings.user.email = "bryan.mreese@gmail.com";
   };
 
   programs.bash = {
