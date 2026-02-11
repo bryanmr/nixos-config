@@ -79,5 +79,7 @@
   imports =
   [
     ./ollama.nix
+    ./opencode.nix
+    ./beads.nix
   ];
 }

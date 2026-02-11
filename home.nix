@@ -10,7 +10,12 @@
     curl
     wget
     git
+    nodejs_20
   ];
+
+  home.shellAliases = {
+    opencode = "npx opencode-ai";
+  };
 
   home.sessionVariables = {
     UV_PYTHON_DOWNLOADS = "never";
@@ -47,5 +52,4 @@
       syntax on
     '';
   };
-
 }
