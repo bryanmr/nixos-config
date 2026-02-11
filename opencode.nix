@@ -6,7 +6,7 @@
   ];
 
   environment.shellAliases = {
-    opencode = "npx opencode-ai@latest";
+    opencode = "npx opencode-ai@latest --provider ollama --model nemotron-3-nano:30b --endpoint http://localhost:11434";
   };
 
   programs.nix-ld.enable = true;
