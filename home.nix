@@ -10,11 +10,12 @@
     curl
     wget
     git
-    nodejs_20
+    nodejs_22
+    gemini-cli
   ];
 
   home.shellAliases = {
-    opencode = "npx opencode-ai";
+    opencode = "npx opencode-ai@latest";
   };
 
   home.sessionVariables = {
@@ -52,4 +53,36 @@
       syntax on
     '';
   };
+
+  xdg.configFile."opencode/opencode.json".text = ''
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "ollama/nemotron-3-nano:30b",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama Local",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+      "models": {
+        "nemotron-3-nano:30b": {
+          "name": "nemotron-3-nano:30b",
+          "limit": {
+            "context": 256000,
+            "output": 8192
+          }
+        },
+        "gemma3:27b-it-qat": {
+          "name": "gemma3:27b-it-qat",
+          "limit": {
+            "context": 128000,
+            "output": 4096
+          }
+        }
+      }
+    }
+  }
+}
+  '';
 }

@@ -1,5 +1,9 @@
 { config, pkgs, inputs, ... }:
 
+# NOTE: This was an attempt at getting ComfyUI working on WSL. It failed.
+# It is currently unused and not imported by any configuration.
+# Leaving it here for reference in case it can be fixed later.
+
 let
   # Access the unstable packages for your specific system
   pkgs-unstable = import inputs.nixpkgs-unstable {

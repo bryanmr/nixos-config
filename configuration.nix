@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 
+let
+  userHome = "/home/bryan";
+in
 {
   # System Settings
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -8,17 +11,17 @@
 
   # Secrets Management (sops-nix)
   sops = {
-    defaultSopsFile = "/home/bryan/secrets/secrets.yaml";
-    age.keyFile = "/home/bryan/.config/sops/age/keys.txt";
+    defaultSopsFile = "${userHome}/secrets/secrets.yaml";
+    age.keyFile = "${userHome}/.config/sops/age/keys.txt";
     validateSopsFiles = false;
     
     secrets = {
       ssh_key = { 
-        path = "/home/bryan/.ssh/id_ed25519";
+        path = "${userHome}/.ssh/id_ed25519";
         owner = "bryan"; 
       };
       ssh_pub_key = { 
-        path = "/home/bryan/.ssh/id_ed25519.pub";
+        path = "${userHome}/.ssh/id_ed25519.pub";
         owner = "bryan"; 
       };
     };
@@ -36,6 +39,8 @@
     sops
     age
     jq
+    kubectl
+    kubernetes-helm
     nvidia-container-toolkit
     # Helper to rebuild
     (pkgs.writeShellScriptBin "rebuild" ''
@@ -46,7 +51,7 @@
       fi
 
       echo "Detected environment: $TARGET"
-      sudo nixos-rebuild switch --flake /home/bryan/nixos-config#$TARGET
+      sudo nixos-rebuild switch --flake ${userHome}/nixos-config#$TARGET
 
       source ~/.bashrc
     '')
@@ -56,13 +61,11 @@
   environment.variables = {
     EDITOR = "vim";
     VISUAL = "vim";
-    # nvidia-smi fixes
-    LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
   };
 
   environment.shellAliases = {
     nix-clean = "sudo nix-collect-garbage -d";
-    sec-edit = "sops /home/bryan/secrets/secrets.yaml";
+    sec-edit = "sops ${userHome}/secrets/secrets.yaml";
   };
 
   programs.bash.interactiveShellInit = ''
@@ -79,6 +82,11 @@
   imports =
   [
     ./ollama.nix
-    ./opencode.nix
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
   ];
 }
