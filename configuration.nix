@@ -83,6 +83,7 @@ in
   imports =
   [
     ./ollama.nix
+    ./podman.nix
   ];
 
   programs.nix-ld.enable = true;
