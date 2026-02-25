@@ -1,5 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
+let
+  pkgs-unstable = import inputs.nixpkgs-unstable {
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
+in
 {
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
@@ -11,7 +17,7 @@
     wget
     git
     nodejs_22
-    gemini-cli
+    pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
   ];
