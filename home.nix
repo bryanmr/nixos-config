@@ -12,6 +12,8 @@
     git
     nodejs_22
     gemini-cli
+    bubblewrap
+    bindfs
   ];
 
   home.shellAliases = {
