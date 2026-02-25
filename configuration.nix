@@ -39,6 +39,7 @@ in
     sops
     age
     jq
+    k9s
     kubectl
     kubernetes-helm
     nvidia-container-toolkit
