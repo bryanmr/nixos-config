@@ -25,7 +25,7 @@ in
     rust-analyzer
     webkitgtk_4_1
     gtk3
-    libsoup
+    libsoup_2_4
     openssl
     dbus
     pkg-config

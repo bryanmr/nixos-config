@@ -27,7 +27,7 @@ The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-u
 The Rust development environment is set up by installing `rustup`, `cargo`, and `rust-analyzer` via `home.nix`. This provides the core tools for Rust programming.
 
 ### Tauri Development
-To support Tauri development, several packages have been added to `home.nix`. These include `webkitgtk_4_1`, `gtk3`, `libsoup`, `openssl`, `dbus`, `pkg-config`, `libappindicator-gtk3`, and `cargo-tauri` from the unstable channel. These packages provide the necessary libraries and tools for building Tauri applications.
+To support Tauri development, several packages have been added to `home.nix`. These include `webkitgtk_4_1`, `gtk3`, `libsoup_2_4`, `openssl`, `dbus`, `pkg-config`, `libappindicator-gtk3`, and `cargo-tauri` from the unstable channel. These packages provide the necessary libraries and tools for building Tauri applications.
 
 ## Usage
 
