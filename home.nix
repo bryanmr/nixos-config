@@ -23,6 +23,14 @@ in
     rustup
     cargo
     rust-analyzer
+    webkitgtk
+    gtk3
+    libsoup
+    openssl
+    dbus
+    pkg-config
+    libappindicator-gtk3
+    pkgs-unstable.cargo-tauri
   ];
 
   home.shellAliases = {
