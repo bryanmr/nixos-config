@@ -28,7 +28,7 @@ in
     pkg-config
     libappindicator-gtk3
     pkgs-unstable.cargo-tauri
-  ];
+    pkgs-unstable.ghostty  ];
 
   home.shellAliases = {
     opencode = "npx opencode-ai@latest";

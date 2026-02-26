@@ -29,6 +29,9 @@ The Rust development environment is set up by installing `rustup` via `home.nix`
 ### Tauri Development
 To support Tauri development, several packages have been added to `home.nix`. These include `webkitgtk` (from unstable), `gtk3`, `openssl`, `dbus`, `pkg-config`, `libappindicator-gtk3`, and `cargo-tauri` from the unstable channel. These packages provide the necessary libraries and tools for building Tauri applications.
 
+### Ghostty Terminal
+The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `home.nix`. As a graphical application, it is intended for use with WSLg.
+
 ## Usage
 
 To apply changes, use the provided helper script:
