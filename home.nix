@@ -23,9 +23,8 @@ in
     rustup
     cargo
     rust-analyzer
-    webkitgtk_4_1
+    pkgs-unstable.webkitgtk_4_1
     gtk3
-    libsoup_2_4
     openssl
     dbus
     pkg-config
