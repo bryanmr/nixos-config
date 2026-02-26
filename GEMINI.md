@@ -24,7 +24,7 @@ The `gemini-cli` package is installed via `home.nix`. It is pulled from `nixpkgs
 The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-unstable` for CUDA support and newer models.
 
 ### Rust Development
-The Rust development environment is set up by installing `rustup`, `cargo`, and `rust-analyzer` via `home.nix`. This provides the core tools for Rust programming.
+The Rust development environment is set up by installing `rustup` and `rust-analyzer` via `home.nix`. This provides the core tools for Rust programming.
 
 ### Tauri Development
 To support Tauri development, several packages have been added to `home.nix`. These include `webkitgtk` (from unstable), `gtk3`, `openssl`, `dbus`, `pkg-config`, `libappindicator-gtk3`, and `cargo-tauri` from the unstable channel. These packages provide the necessary libraries and tools for building Tauri applications.
