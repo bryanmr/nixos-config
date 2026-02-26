@@ -23,6 +23,9 @@ The `gemini-cli` package is installed via `home.nix`. It is pulled from `nixpkgs
 ### AI Stack
 The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-unstable` for CUDA support and newer models.
 
+### Rust Development
+The Rust development environment is set up by installing `rustup`, `cargo`, and `rust-analyzer` via `home.nix`. This provides the core tools for Rust programming.
+
 ## Usage
 
 To apply changes, use the provided helper script:

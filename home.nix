@@ -20,6 +20,9 @@ in
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
+    rustup
+    cargo
+    rust-analyzer
   ];
 
   home.shellAliases = {
