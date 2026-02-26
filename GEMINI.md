@@ -23,17 +23,12 @@ The `gemini-cli` package is installed via `home.nix`. It is pulled from `nixpkgs
 ### AI Stack
 The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-unstable` for CUDA support and newer models.
 
-### Rust Development
-The Rust development environment is set up by installing `rustup` via `home.nix`. This provides the core tools for Rust programming.
-
-### Tauri Development
-To support Tauri development, several packages have been added to `home.nix`. These include `webkitgtk` (from unstable), `gtk3`, `openssl`, `dbus`, `pkg-config`, `libappindicator-gtk3`, and `cargo-tauri` from the unstable channel. These packages provide the necessary libraries and tools for building Tauri applications.
+### Flake-based Environments (direnv)
+Global installations of Rust, Bun, and Tauri have been removed from `home.nix` in favor of project-specific Nix flakes. `direnv` with `nix-direnv` is enabled via `home.nix` to automatically load environments when entering a project directory containing a `flake.nix` and `.envrc` (use `use flake` in `.envrc`).
 
 ### Ghostty Terminal
 The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `home.nix`. As a graphical application, it is intended for use with WSLg.
 
-### Bun Runtime
-The `bun` JavaScript runtime is installed via `home.nix` to support high-performance JavaScript and TypeScript development.
 
 ## Usage
 

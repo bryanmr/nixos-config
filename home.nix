@@ -16,23 +16,18 @@ in
     curl
     wget
     git
-    nodejs_22
-    bun
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
-    rustup
-    pkgs-unstable.webkitgtk_4_1
-    gtk3
-    openssl
-    dbus
-    pkg-config
-    libappindicator-gtk3
-    pkgs-unstable.cargo-tauri
     pkgs-unstable.ghostty  ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   home.shellAliases = {
-    opencode = "npx opencode-ai@latest";
+    # opencode removed as it depends on nodejs; use nix-shell/flake instead if needed.
   };
 
   home.sessionVariables = {
