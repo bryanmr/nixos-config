@@ -23,7 +23,7 @@ in
     rustup
     cargo
     rust-analyzer
-    webkitgtk
+    webkitgtk_4_1
     gtk3
     libsoup
     openssl
