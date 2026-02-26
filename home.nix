@@ -21,7 +21,6 @@ in
     bubblewrap
     bindfs
     rustup
-    rust-analyzer
     pkgs-unstable.webkitgtk_4_1
     gtk3
     openssl
