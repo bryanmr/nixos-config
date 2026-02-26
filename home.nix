@@ -17,6 +17,7 @@ in
     wget
     git
     nodejs_22
+    bun
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs

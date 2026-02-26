@@ -32,6 +32,9 @@ To support Tauri development, several packages have been added to `home.nix`. Th
 ### Ghostty Terminal
 The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `home.nix`. As a graphical application, it is intended for use with WSLg.
 
+### Bun Runtime
+The `bun` JavaScript runtime is installed via `home.nix` to support high-performance JavaScript and TypeScript development.
+
 ## Usage
 
 To apply changes, use the provided helper script:
