@@ -19,7 +19,7 @@ in
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
-    pkgs-unstable.ghostty  ];
+  ];
 
   programs.direnv = {
     enable = true;

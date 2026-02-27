@@ -27,7 +27,7 @@ The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-u
 Global installations of Rust, Bun, and Tauri have been removed from `home.nix` in favor of project-specific Nix flakes. `direnv` with `nix-direnv` is enabled via `home.nix` to automatically load environments when entering a project directory containing a `flake.nix` and `.envrc` (use `use flake` in `.envrc`).
 
 ### Ghostty Terminal
-The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `home.nix`. As a graphical application, it is intended for use with WSLg.
+The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `desktop.nix`. As a graphical application, it is intended for use with the desktop configuration.
 
 
 ## Usage
