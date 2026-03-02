@@ -29,6 +29,9 @@ Global installations of Rust, Bun, and Tauri have been removed from `home.nix` i
 ### Ghostty Terminal
 The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `desktop.nix`. As a graphical application, it is intended for use with the desktop configuration.
 
+### Zellij
+The `zellij` terminal workspace is installed via `home.nix` and is available for use as a multiplexer.
+
 
 ## Usage
 

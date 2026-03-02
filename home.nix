@@ -16,6 +16,7 @@ in
     curl
     wget
     git
+    zellij
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
