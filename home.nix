@@ -99,5 +99,8 @@ in
 }
   '';
 
-  home.file.".gemini/settings.json".source = ./gemini-settings.json;
+  home.file.".gemini/.env".text = ''
+    GEMINI_ENABLE_AGENTS=true
+    GEMINI_PLAN=true
+  '';
 }

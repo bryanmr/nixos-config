@@ -1,9 +1,0 @@
-{
-  "experimental": {
-    "enableAgents": true,
-    "plan": true
-  },
-  "tools": {
-    "sandbox": "podman"
-  }
-}
