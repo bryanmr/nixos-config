@@ -102,6 +102,5 @@ in
   home.file.".gemini/.env".text = ''
     GEMINI_EXPERIMENTAL_ENABLE_AGENTS=true
     GEMINI_EXPERIMENTAL_PLAN=true
-    GEMINI_SANDBOX=true
   '';
 }
