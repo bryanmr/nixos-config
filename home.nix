@@ -98,4 +98,6 @@ in
   }
 }
   '';
+
+  home.file.".gemini/settings.json".source = ./gemini-settings.json;
 }

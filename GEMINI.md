@@ -19,6 +19,7 @@ This repository contains the NixOS configuration for the user 'bryan', managed a
 
 ### Gemini CLI
 The `gemini-cli` package is installed via `home.nix`. It is pulled from `nixpkgs-unstable` to ensure the latest features are available.
+A dedicated `gemini-settings.json` file is present in the repository, managing advanced experimental features such as agents and plan mode. It is linked to `~/.gemini/settings.json` through `home.nix`.
 
 ### AI Stack
 The AI stack (Ollama, Open WebUI) is defined in `ollama.nix` and uses `nixpkgs-unstable` for CUDA support and newer models.
