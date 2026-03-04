@@ -17,6 +17,7 @@ in
     wget
     git
     zellij
+    opentofu
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs

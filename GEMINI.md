@@ -33,6 +33,8 @@ The `ghostty` terminal emulator is installed from `nixpkgs-unstable` via `deskto
 ### Zellij
 The `zellij` terminal workspace is installed via `home.nix` and is available for use as a multiplexer.
 
+### OpenTofu
+The `opentofu` CLI (open-source Terraform alternative) is installed via `home.nix` to allow for infrastructure as code management.
 
 ## Usage
 
