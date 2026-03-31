@@ -76,6 +76,20 @@ in
           auto-format = true;
           formatter = { command = "ruff"; args = ["format" "-" "--stdin-filename" "diag.py"]; };
           language-servers = [ "ty" "ruff" ];
+          debugger = {
+            name = "debugpy";
+            transport = "tcp";
+            command = "python3";
+            args = [ "-m" "debugpy.adapter" ];
+            templates = [
+              {
+                name = "source";
+                request = "launch";
+                completion = [ { name = "main"; completion = "filename"; } ];
+                args = { program = "{0}"; };
+              }
+            ];
+          };
         }
       ];
     };
