@@ -22,6 +22,7 @@ in
     bubblewrap
     bindfs
     # LSPs
+    pkgs-unstable.ty
     pyright
     ruff
     nil

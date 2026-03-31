@@ -41,7 +41,7 @@ The `helix` modal text editor is configured via `home.nix`. It is set as the def
 
 ### Language Servers (LSPs)
 The following LSPs are installed globally via `home.nix` for use with editors like Helix:
-- **Python**: `pyright` (type checking) and `ruff` (linting/formatting).
+- **Python**: `ty` (high-performance type checking), `pyright` (standard type checking), and `ruff` (linting/formatting).
 - **Nix**: `nil`.
 - **Rust**: `rust-analyzer`.
 
