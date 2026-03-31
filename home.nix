@@ -21,6 +21,11 @@ in
     pkgs-unstable.gemini-cli
     bubblewrap
     bindfs
+    # LSPs
+    pyright
+    ruff
+    nil
+    rust-analyzer
   ];
 
   programs.direnv = {
