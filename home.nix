@@ -23,10 +23,10 @@ in
     bindfs
     # LSPs
     pkgs-unstable.ty
-    pyright
     ruff
     nil
     rust-analyzer
+    python312Packages.debugpy
   ];
 
   programs.direnv = {
@@ -68,6 +68,16 @@ in
           select = "underline";
         };
       };
+    };
+    languages = {
+      language = [
+        {
+          name = "python";
+          auto-format = true;
+          formatter = { command = "ruff"; args = ["format" "-" "--stdin-filename" "diag.py"]; };
+          language-servers = [ "ty" "ruff" ];
+        }
+      ];
     };
   };
 

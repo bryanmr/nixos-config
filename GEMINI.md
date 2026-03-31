@@ -40,8 +40,8 @@ The `opentofu` CLI (open-source Terraform alternative) is installed via `home.ni
 The `helix` modal text editor is configured via `home.nix`. It is set as the default editor with relative line numbers and a customized theme.
 
 ### Language Servers (LSPs)
-The following LSPs are installed globally via `home.nix` for use with editors like Helix:
-- **Python**: `ty` (high-performance type checking), `pyright` (standard type checking), and `ruff` (linting/formatting).
+The following LSPs and tools are installed globally via `home.nix` for use with editors like Helix:
+- **Python**: `ty` (high-performance type checking), `ruff` (linting/formatting), and `debugpy` (debugger). Helix is configured to auto-format Python files using `ruff` on save.
 - **Nix**: `nil`.
 - **Rust**: `rust-analyzer`.
 
