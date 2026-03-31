@@ -49,6 +49,22 @@ in
     };
   };
 
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
+    settings = {
+      theme = "catppuccin_mocha";
+      editor = {
+        line-number = "relative";
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+      };
+    };
+  };
+
   programs.vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [ 

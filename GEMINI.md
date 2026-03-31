@@ -36,6 +36,9 @@ The `zellij` terminal workspace is installed via `home.nix` and is available for
 ### OpenTofu
 The `opentofu` CLI (open-source Terraform alternative) is installed via `home.nix` to allow for infrastructure as code management.
 
+### Helix
+The `helix` modal text editor is configured via `home.nix`. It is set as the default editor with relative line numbers and a customized theme.
+
 ## Usage
 
 To apply changes, use the provided helper script:
